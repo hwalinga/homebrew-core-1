@@ -17,6 +17,9 @@ class Byacc < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--program-prefix=b", "--prefix=#{prefix}", "--man=#{man}"
     system "make", "install"
+
+    bin.install_symlink "byacc" => "yacc"
+    man1.install_symlink "byacc.1" => "yacc.1"
   end
 
   test do
